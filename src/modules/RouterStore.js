@@ -1,4 +1,4 @@
-import {observable, action, computed} from 'mobx';
+import {observable, action, computed, makeObservable} from 'mobx';
 import transitionPath, {shouldUpdateNode} from 'router5-transition-path';
 
 class RouterStore {
@@ -15,6 +15,8 @@ class RouterStore {
   router = null;
 
   constructor() {
+    console.log('qqq call constructor')
+    makeObservable(this)
     this.navigate = this.navigate.bind(this);
     this.shouldUpdateNodeFactory = this.shouldUpdateNodeFactory.bind(this);
   }
